@@ -21,13 +21,26 @@ Spring Framework를 활용한 웹 서비스로 간단한 블로그 게시글을 
 
 ## 📌 주요 기능
 #### 블로깅 기본 기능
-* 게시글 전체 목록 조회(READ)
-    - GET 방식 API를 통한 게시글 목록 불러오기
-* 게시글 생성(CREATE)
+* [1] 게시글 생성(CREATE)
     - POST 방식 API를 통한 게시글 저장
-* 선택한 게시글 보기(READ)
+* [2] 게시글 전체 목록 조회(READ)
+    - GET 방식 API를 통한 게시글 목록 불러오기
+* [3] 선택한 게시글 보기(READ)
     - GET 방식 API를 통한 게시글 내용 보기
-* 게시글 수정(UPDATE)
+* [4] 게시글 수정(UPDATE)
     - PUT 방식 API 사용해서 게시글 내용 수정
-* 게시글 삭제(DELETE)
+* [5] 게시글 삭제(DELETE)
     - DELETE 방식 API 사용해서 특정 게시글 삭제
+
+## ⚠️ 주의
+#### 추적 예외
+* src/main/resources/application.properties 파일은 DB 접속 정보가 있어 추적이 제외되어 있습니다.
+* 테스트를 진행 하시려면 위 경로와 파일(application.properties)을 생성해주세요.
+- 다음과 코드를 입력해주세요 < ... > 부분을 작성해주셔야 합니다. "<", ">" 괄호도 제거되어야 합니다.
+- ex) spring.datasource.username=root
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/blog
+spring.datasource.username=<USERNAME>
+spring.datasource.password=<PASSWORD>
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
