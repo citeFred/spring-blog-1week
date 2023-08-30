@@ -6,7 +6,6 @@ import com.yzpocket.springmvcblog.entity.Blog;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 //Blog 클래스와 비슷하게 생겼다. 요청에대한 반환 부분이다. 컨트롤러 생성 후 이것을 작성한다.
@@ -17,7 +16,7 @@ public class BlogResponseDto {
     private String title;
     private String author;
     private String contents;
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Timestamp accesstime;
     private String password;
 
