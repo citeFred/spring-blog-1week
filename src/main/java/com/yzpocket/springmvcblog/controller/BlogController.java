@@ -83,9 +83,9 @@ public class BlogController {
 
 
     //[4]특정 게시글 수정 - UPDATE
-    @PutMapping("/posts/{idx}/{password}")
-    public Long updateBlog(@PathVariable Long idx, @PathVariable String password, @RequestBody BlogRequestDto requestDto) {
-        // 선택 블로그가 DB에 존재하는지 확인 (중복되서 아래 확인 메소드를 따로 만듬)
+    @PutMapping("/posts/{idx}")
+    public Long updateBlog(@PathVariable Long idx, @RequestParam String password, @RequestBody BlogRequestDto requestDto) {
+        // 선택 블로그가 DB에 존재하는지 확인 + 암호 일치 확인
         Blog blog = findByIdxPass(idx, password);
         if(blog != null) {
             // blog 내용 수정
@@ -101,7 +101,7 @@ public class BlogController {
     //[5]특정 게시글 삭제 - DELETE
     @DeleteMapping("/posts/{idx}")
     public Long deleteBlog(@PathVariable Long idx) {
-        // 해당 메모가 DB에 존재하는지 확인 (중복되서 아래 존재 확인 메소드를 따로 만듬)
+        // 해당 블로그가 DB에 존재하는지 확인
         Blog blog = findByIdx(idx);
         if (blog != null) {
             // 게시글 삭제
@@ -154,7 +154,13 @@ public class BlogController {
                 if (storedPassword.equals(password)) {
                     return blog;
                 } else {
-                    return null;
+                    throw new IllegalArgumentException("비밀번호가 일치하지 않습니다."); // 예외 던지기
+                    //ChatGPT를 통한 해당 부분의 트러블 슈팅 코드리뷰. <<-------- 자바의 정석 예외 부분을 좀 학습해봐야겠다!
+                    //만약 Blog 객체를 반환하면서 동시에 비밀번호 비교 로직도 처리하려면,
+                    // 비밀번호 비교에 실패한 경우 null 대신에 예외를 던지는 것이 더 명확!!!!!
+                //    이렇게 수정하면 findByIdxPass 메소드가 Blog 객체를 반환하면서
+                //    동시에 비밀번호가 일치하지 않으면 예외를 던지도록 되어 있습니다.
+                //    이렇게 하면 예외를 처리할 수 있는 부분에서 오류를 빠르게 감지하고 처리할 수 있습니다.
                 }
             } else {
                 return null;
