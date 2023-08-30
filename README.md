@@ -6,6 +6,15 @@
 
 Spring Framework를 활용한 웹 서비스로 간단한 블로그 게시글을 생성, 전체 게시글 목록보기, 수정, 삭제 할 수 있습니다.
 
+## 📊 프로젝트 Usecase Diagram
+![image](https://github.com/yzpocket/spring-mvc-BlogApp/assets/67217259/5a345915-3eb1-4d39-8e9a-03c867e41334)
+
+## 🧩 프로젝트 API 명세서 및 요구조건
+![image](https://github.com/yzpocket/spring-mvc-BlogApp/assets/67217259/fdf9df85-025e-46a7-9eda-96f3aff85b94)
+![image](https://github.com/yzpocket/spring-mvc-BlogApp/assets/67217259/76575f64-4aac-49a1-8ceb-12a9487bae74)
+
+
+
 ## 🕰️ 개발 기간
 * 23.08.29 - 23.08.30
 
