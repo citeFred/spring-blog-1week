@@ -74,13 +74,29 @@ public class BlogController {
                 Timestamp accesstime = rs.getTimestamp("accesstime"); // 'accesstime' 컬럼이 datetime 유형이므로 getTimestamp 메서드를 사용
 
                 String password = rs.getString("password");
-                return new BlogResponseDto(idx, title, author, contents, accesstime, password);
+                return new BlogResponseDto(idx, title, author, contents, accesstime, null); //패스워드는 보여줄 필요가 없지않나?
             }
         });
     }
 
     //[3]특정 게시글 내용 조회 - READ
+    @GetMapping("/posts/{idx}")
+    public BlogResponseDto getBlog(@PathVariable Long idx) {
+        // DB 조회
+        String sql = "SELECT title, author, accesstime, contents FROM blog WHERE idx = ?";
 
+        return jdbcTemplate.queryForObject(sql, new Object[]{idx}, new RowMapper<BlogResponseDto>() {
+            @Override
+            public BlogResponseDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+                String title = rs.getString("title");
+                String author = rs.getString("author");
+                Timestamp accesstime = rs.getTimestamp("accesstime"); // 'accesstime' 컬럼이 datetime 유형이므로 getTimestamp 메서드를 사용
+                String contents = rs.getString("contents");
+
+                return new BlogResponseDto(idx, title, author, contents, accesstime, null); //패스워드는 보여줄 필요가 없지않나?
+            }
+        });
+    }
 
     //[4]특정 게시글 수정 - UPDATE
     @PutMapping("/posts/{idx}")
