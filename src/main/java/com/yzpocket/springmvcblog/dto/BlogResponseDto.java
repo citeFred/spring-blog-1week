@@ -30,6 +30,12 @@ public class BlogResponseDto {
 
     }
 
+    public BlogResponseDto(String title, String author, String contents, Timestamp accesstime) {
+        this.title = title;
+        this.author = author;
+        this.contents = contents;
+        this.accesstime = accesstime;
+    }
     public BlogResponseDto(Long idx, String title, String author, String contents, Timestamp accesstime, String password) {
         this.idx = idx;
         this.title = title;
