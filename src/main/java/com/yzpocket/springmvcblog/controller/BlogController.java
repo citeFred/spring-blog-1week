@@ -76,4 +76,46 @@ public class BlogController {
             }
         });
     }
+
+    //[3]특정 게시글 내용 조회 - READ
+
+
+    //[4]특정 게시글 수정 - UPDATE
+
+
+    //[5]특정 게시글 삭제 - DELETE
+    @DeleteMapping("/posts/{idx}")
+    public Long deleteBlog(@PathVariable Long idx) {
+        // 해당 메모가 DB에 존재하는지 확인 (중복되서 아래 존재 확인 메소드를 따로 만듬)
+        Blog blog = findByIdx(idx);
+        if (blog != null) {
+            // 게시글 삭제
+            String sql = "DELETE FROM blog WHERE idx = ?";
+            jdbcTemplate.update(sql, idx);
+
+            return idx;
+        } else {
+            throw new IllegalArgumentException("선택한 글은 존재하지 않습니다.");
+        }
+    }
+
+
+    //---------------JDBC 블로그 찾기 추가--------------
+    private Blog findByIdx(Long idx) {
+        // DB 조회
+        String sql = "SELECT * FROM blog WHERE idx = ?";
+
+        return jdbcTemplate.query(sql, resultSet -> {
+            if (resultSet.next()) {
+                Blog blog = new Blog();
+                blog.setTitle(resultSet.getString("title"));
+                blog.setAuthor(resultSet.getString("author"));
+                blog.setAccesstime(Timestamp.valueOf(resultSet.getString("accesstime")));
+                blog.setContents(resultSet.getString("contents"));
+                return blog;
+            } else {
+                return null;
+            }
+        }, idx);
+    }
 }
