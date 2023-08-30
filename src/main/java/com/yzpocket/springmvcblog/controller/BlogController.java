@@ -56,4 +56,24 @@ public class BlogController {
         return blogResponseDto;
     }
 
+    //[2]전체 게시글 목록 조회 - READ
+    @GetMapping("/posts")
+    public List<BlogResponseDto> getBlogs() {
+        // DB 조회
+        String sql = "SELECT * FROM blog";
+
+        return jdbcTemplate.query(sql, new RowMapper<BlogResponseDto>() {
+            @Override
+            public BlogResponseDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Long idx = rs.getLong("idx");
+                String title = rs.getString("title");
+                String author = rs.getString("author");
+                String contents = rs.getString("contents");
+                Timestamp accesstime = rs.getTimestamp("accesstime"); // 'accesstime' 컬럼이 datetime 유형이므로 getTimestamp 메서드를 사용
+
+                String password = rs.getString("password");
+                return new BlogResponseDto(idx, title, author, contents, accesstime, password);
+            }
+        });
+    }
 }
