@@ -5,6 +5,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### INFO
+application.properties
+
 ### STS ###
 .apt_generated
 .classpath
@@ -26,8 +29,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### INFO
-application.properties
+
 
 ### NetBeans ###
 /nbproject/private/
