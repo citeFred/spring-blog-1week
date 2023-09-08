@@ -4,6 +4,8 @@ Spring MVC 패턴을 공부하고 주간 테스트를 기록하는 공간입니�
 ## 🖥️ 스터디 저장소 소개
 * 문제를 통한 요구사항 실습
 * 코드 수정 및 기능 구현을 통해 부족한 부분을 체크하는 테스트
+* 과제 리뷰 -> https://ohnyong.notion.site/Lv-1-cbd646bdc47a40ea90fe348ff2b8242f?pvs=4
+* 해당 프로젝트는 초기 버전으로 앞으로 https://github.com/yzpocket/spring-blog 에서 Spring Boot 연습이 계속됩니다.
 
 Spring Framework를 활용한 웹 서비스로 간단한 블로그 게시글을 생성, 전체 게시글 목록보기, 수정, 삭제 할 수 있습니다.
 
