@@ -1,8 +1,9 @@
-# Spring MVC Mini Project
-[Spring] MVC 프로젝트(project Blog)
+# Spring Mini Project repository
+Spring MVC 패턴을 공부하고 주간 테스트를 기록하는 공간입니다.
 
-## 🖥️ 프로젝트 소개
-해당 프로젝트는 간편한 블로그 게시글를 게시 및 관리 하는 Spring MVC 프로젝트입니다.
+## 🖥️ 스터디 저장소 소개
+* 문제를 통한 요구사항 실습
+* 코드 수정 및 기능 구현을 통해 부족한 부분을 체크하는 테스트
 
 Spring Framework를 활용한 웹 서비스로 간단한 블로그 게시글을 생성, 전체 게시글 목록보기, 수정, 삭제 할 수 있습니다.
 
@@ -19,8 +20,12 @@ Spring Framework를 활용한 웹 서비스로 간단한 블로그 게시글을 
 * 23.08.29 - 23.08.30
 
 ### 🧑‍🤝‍🧑 맴버구성
-- (팀장) 김인용 - CRUD 기능
+- 김인용 - CRUD 기능
 
+### 👋🏻 Contact
+- **Email** : citefred@yzpocket.com
+- **Blog** : https://www.citefred.com
+  
 ### ⚙️ 개발 환경
 - **MainLanguage** : `Java` - JDK 17
 - **IDE** : IntelliJ IDEA Ultimate
